@@ -6,7 +6,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Initialize client
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+api_key = os.getenv("GROQ_API_KEY") or os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise RuntimeError(
+        "Missing API key. Set GROQ_API_KEY (preferred) or OPENAI_API_KEY in your .env file."
+    )
+
+client = Groq(api_key=api_key)
 
 def generate_insight(query, data_preview):
     prompt = f"""
