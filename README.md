@@ -78,11 +78,14 @@ talk_to_data/
    pip install -r requirements.txt
    ```
 
-4. **Create `.env` file in project root**
+4. **Set up environment variables**
+   ```bash
+   # Copy the example file
+   cp .env.example .env
+   
+   # Edit .env and add your Groq API key
+   # Get your free key at: https://console.groq.com
    ```
-   GROQ_API_KEY=your_api_key_here
-   ```
-   - Get your free API key at [console.groq.com](https://console.groq.com)
 
 5. **Run the application**
    ```bash
